@@ -71,8 +71,8 @@ class BookDirectoryTestSuite {
         List<Book> theListOfBooks0 = bookLibrary.listBooksWithCondition("ZeroBooks");
         List<Book> theListOfBooks15 = bookLibrary.listBooksWithCondition("Any title");
         List<Book> theListOfBooks40 = bookLibrary.listBooksWithCondition("FortyBooks");
-        // Then
 
+        // Then
         assertEquals(0, theListOfBooks0.size());
         assertEquals(15, theListOfBooks15.size());
         assertEquals(40, theListOfBooks40.size());
@@ -114,7 +114,6 @@ class BookDirectoryTestSuite {
         BookLibrary bookLibrary = new BookLibrary(libraryDatabaseMock);
         LibraryUser user = new LibraryUser("Name", "LastName", "peselid");
         List<Book> resultListOf1Book = generateListOfNBooks(1);
-
         when(libraryDatabaseMock.listBooksInHandsOf(user)).thenReturn(resultListOf1Book);
 
         //When
@@ -130,7 +129,6 @@ class BookDirectoryTestSuite {
         BookLibrary bookLibrary = new BookLibrary(libraryDatabaseMock);
         LibraryUser user = new LibraryUser("Name", "LastName", "peselid");
         List<Book> resultListOf5Books = generateListOfNBooks(5);
-
         when(libraryDatabaseMock.listBooksInHandsOf(user)).thenReturn(resultListOf5Books);
 
         //When
