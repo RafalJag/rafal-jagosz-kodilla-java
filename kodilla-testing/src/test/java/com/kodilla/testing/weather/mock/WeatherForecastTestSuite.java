@@ -58,10 +58,10 @@ class WeatherForecastTestSuite {
     @Test
     void testCalculateMedian() {
         //Given
-        WeatherForecast weatherAverage = new WeatherForecast(temperaturesMock);
+        WeatherForecast weatherMedian = new WeatherForecast(temperaturesMock);
 
         //When
-        double median = weatherAverage.calculateMedian();
+        double median = weatherMedian.calculateMedian();
 
         //Then
         Assertions.assertEquals(25.5,median);
