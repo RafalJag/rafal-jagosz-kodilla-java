@@ -6,13 +6,12 @@ import com.kodilla.stream.beautifier.PoemBeautifier;
 public class StreamMain {
 
     public static void main(String[] args) {
-        PoemBeautifier text = new PoemBeautifier();
-        text.beautify("Tekst", "Xxx.", ".xxX",
+        PoemBeautifier textToEdt = new PoemBeautifier();
+        textToEdt.beautify("Tekst", "Xxx.", ".xxX",
                 (text, start, end) -> start + text + end);
-        text.beautify("Tekst", "", "",
+        textToEdt.beautify("Tekst", "", "",
                 (text, start, end) -> start + text.toUpperCase() + end);
-        text.beautify("Tekst", "|____", "____|",
+        textToEdt.beautify("Tekst", "|____", "____|",
                 (text, start, end) -> start + text.toUpperCase() + end);
-
     }
 }
