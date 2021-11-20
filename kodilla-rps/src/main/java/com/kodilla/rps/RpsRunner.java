@@ -23,12 +23,18 @@ public class RpsRunner {
         Scanner scan = new Scanner(System.in);
         int playerWins = 0;
         int computerWins = 0;
+        int rounds;
         boolean end = false;
         Description description = new Description();
 
-        System.out.println("Podaj liczbę rund potrzebnych do wygrania gry.");
-        int rounds = scan.nextInt();
-        scan.nextLine();
+        do {
+            System.out.println("Podaj liczbę rund potrzebnych do wygrania gry.");
+            while (!scan.hasNextInt()) {
+                System.out.println("Błędny znak. Podaj liczbe!");
+                scan.next();
+            }
+            rounds = scan.nextInt();
+        } while (rounds <= 0);
 
         while (!end) {
             System.out.println("Wykonaj ruch");
