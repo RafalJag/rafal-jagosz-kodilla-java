@@ -2,7 +2,7 @@ package com.kodilla.rps;
 
 import java.util.Scanner;
 
-public class Description {
+public class Game {
     Scanner scan = new Scanner(System.in);
 
     private static final String description = "OPIS KLAWISZY: \n" +
@@ -15,20 +15,24 @@ public class Description {
     }
 
     public int playerMove() {
-        int move;
-        //do {
-            System.out.println("Wykonaj ruch");
+        int move = 0;
+        String next;
+        System.out.println("Wykonaj ruch");
+        boolean ok = false;
 
-            while (!scan.hasNextInt() ){//|| (scan.nextInt()>0 && scan.nextInt() <= 3) ) {
-                System.out.println("Błędny znak. Wybierz między 1-3");
-                scan.next();
-            }
-            move = scan.nextInt();
-
-            while (move != 1 && move != 2 && move != 3) {
-                System.out.println("Błędny znak. Wybierz między 1-3");
-                move = scan.nextInt();
-            }
+        do {
+            next = scan.next();
+            try {
+                move = Integer.parseInt(next);
+                if ( move < 1 || move >3 ) {
+                    System.out.println("Błędny znak. Wybierz między 1-3");
+                } else {
+                    ok = true;
+                }
+            } catch (Exception e) {
+                        System.out.println("Błędny znak. Wybierz między 1-3");
+                    }
+                } while (!ok);
 
             if (move == Moves.ROCK.getNumber()) {
                 System.out.println("Zagrałeś \"KAMIEN\"");
@@ -37,8 +41,6 @@ public class Description {
             } else  {
                 System.out.println("Zagrałeś \"NOZYCE\"" );
             }
-        //}
-        //while (move <= 0) ;
         return move;
     }
 

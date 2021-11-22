@@ -12,7 +12,7 @@ public class RpsRunner {
 
     public static void start() {
         Scanner scan = new Scanner(System.in);
-        Description start = new Description();
+        Game start = new Game();
         System.out.println("Jak masz na imię?");
         String name = scan.nextLine();
         System.out.println("Cześć " + name + "\n" + start.getDescription());
@@ -23,15 +23,15 @@ public class RpsRunner {
         int playerWins = 0;
         int computerWins = 0;
         boolean end = false;
-        Description description = new Description();
+        Game game = new Game();
 
-        int rounds = description.roundsToWin();
+        int rounds = game.roundsToWin();
         while (!end) {
 
-            int playerMove = description.playerMove();
+            int playerMove = game.playerMove();
             int computerMove = new Random().nextInt(3) + 1;
-            description.computerMove(computerMove);
-            if (description.playerWin(playerMove, computerMove)) {
+            game.computerMove(computerMove);
+            if (game.playerWin(playerMove, computerMove)) {
                 playerWins++;
                 System.out.println("Wygrałeś! ");
                 System.out.println("Aktualny wynik: " + "Ty: " + playerWins + " Komputer: " + computerWins);
