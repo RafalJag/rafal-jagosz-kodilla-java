@@ -20,26 +20,15 @@ public class RpsRunner {
     }
 
     public static void run() {
-        Scanner scan = new Scanner(System.in);
         int playerWins = 0;
         int computerWins = 0;
-        int rounds;
         boolean end = false;
         Description description = new Description();
 
-        do {
-            System.out.println("Podaj liczbę rund potrzebnych do wygrania gry.");
-            while (!scan.hasNextInt()) {
-                System.out.println("Błędny znak. Podaj liczbe!");
-                scan.next();
-            }
-            rounds = scan.nextInt();
-        } while (rounds <= 0);
-
+        int rounds = description.roundsToWin();
         while (!end) {
-            System.out.println("Wykonaj ruch");
-            int playerMove = scan.nextInt();
-            description.playerMove(playerMove);
+
+            int playerMove = description.playerMove();
             int computerMove = new Random().nextInt(3) + 1;
             description.computerMove(computerMove);
             if (description.playerWin(playerMove, computerMove)) {
