@@ -3,9 +3,9 @@ package com.kodilla.good.patterns.challenges;
 import java.util.*;
 import java.util.stream.Collectors;
 
-class MovieStore {
+class MovieStore{
 
-    public Map<String, List<String>> getMovies() {
+    public Map<String, List<String>> getMovies(){
         List<String> ironManTranslations = new ArrayList<>();
         ironManTranslations.add("Żelazny Człowiek");
         ironManTranslations.add("Iron Man");
@@ -26,7 +26,7 @@ class MovieStore {
         return booksTitlesWithTranslations;
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args){
         MovieStore movieStore = new MovieStore();
         String result = movieStore.getMovies().entrySet().stream()
                 .flatMap(movie -> movie.getValue().stream())
