@@ -17,8 +17,8 @@ public class Game {
     public int playerMove() {
         int move = 0;
         String next;
-        System.out.println("Wykonaj ruch");
         boolean ok = false;
+        System.out.println("Wykonaj ruch");
 
         do {
             next = scan.next();
