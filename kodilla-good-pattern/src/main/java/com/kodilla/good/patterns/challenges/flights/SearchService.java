@@ -1,34 +1,35 @@
 package com.kodilla.good.patterns.challenges.flights;
 
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 public class SearchService {
 
-    private final Database flightDatabaseService = new Database();
+    Set<Flight> flights = Database.getDatabase();
 
     public void getFlights(){
-        flightDatabaseService.flights.stream()
+        flights.stream()
                 .map(Flight::toString)
                 .forEach(System.out::println);
     }
     public void FindFlightFrom(String city){
-        flightDatabaseService.flights.stream()
+        flights.stream()
                 .filter(flight -> flight.getDeparture().equalsIgnoreCase(city))
                 .map(Flight::toString)
                 .forEach(System.out::println);
     }
     public void FindFlightTo(String city){
-        flightDatabaseService.flights.stream()
+        flights.stream()
                 .filter(flight -> flight.getArrival().equalsIgnoreCase(city))
                 .map(Flight::toString)
                 .forEach(System.out::println);
     }
     public void FindFlightWithTransfer(String start, String end) {
-        List<Flight> flightStart = flightDatabaseService.flights.stream()
+        List<Flight> flightStart = flights.stream()
                 .filter(flight -> flight.getDeparture().equalsIgnoreCase(start))
                 .collect(Collectors.toList());
-        List<Flight> flightEnd = flightDatabaseService.flights.stream()
+        List<Flight> flightEnd = flights.stream()
                 .filter(flight -> flight.getArrival().equalsIgnoreCase(end))
                 .collect(Collectors.toList());
         for(Flight first: flightStart){
