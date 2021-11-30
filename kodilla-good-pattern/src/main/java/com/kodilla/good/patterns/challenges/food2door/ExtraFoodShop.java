@@ -13,12 +13,8 @@ public class ExtraFoodShop implements ProducerService {
             return new OrderDto(orderRequest, false);
         }
         boolean isOrdered = orderRequest.getQuantity() <= products.get(orderRequest.getProduct());
+        infoService.inform(orderRequest, isOrdered, getProducerName());
 
-        if (isOrdered) {
-            infoService.inform(orderRequest, true, getProducerName());
-        } else {
-            infoService.inform(orderRequest, false, getProducerName());
-        }
         return new OrderDto(orderRequest, isOrdered);
     }
 

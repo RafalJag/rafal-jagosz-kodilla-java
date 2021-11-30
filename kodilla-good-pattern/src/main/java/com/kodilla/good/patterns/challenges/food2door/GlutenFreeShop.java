@@ -14,11 +14,8 @@ public class GlutenFreeShop implements ProducerService {
         }
         boolean isOrdered = orderRequest.getQuantity() <= products.get(orderRequest.getProduct());
 
-        if (isOrdered) {
-            infoService.inform(orderRequest, true, getProducerName());
-        } else {
-            infoService.inform(orderRequest, false, getProducerName());
-        }
+        infoService.inform(orderRequest, isOrdered, getProducerName());
+
         return new OrderDto(orderRequest, isOrdered);
     }
 
