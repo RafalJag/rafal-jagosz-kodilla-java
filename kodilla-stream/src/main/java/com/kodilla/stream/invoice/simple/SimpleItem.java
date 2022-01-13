@@ -10,7 +10,7 @@ public final class SimpleItem {
         this.quantity = quantity;
     }
 
-    public SimpleProduct getProduct() {
+    public SimpleProduct getProduct(String s, double v, double v1) {
         return product;
     }
 
